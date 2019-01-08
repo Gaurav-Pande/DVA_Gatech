@@ -1,0 +1,14 @@
+1.Average node degree (run the function called “Average Degree”)
+-> 1.62
+--> I think average degree means sum of degree of all node divided by total number of nodes, so that we get on an average what o
+is the degree per node here
+
+Diameter of the graph (run the function called “Network Diameter”)
+-> 16
+I think it is the maximum distance between any two nodes in the graph as also mention when we click on the run diameter button.
+So in a graph this should be the distance between 2 nodes which are farthest apart. No 2 other nodes are this much far.
+
+Average path length (run the function called “Avg. Path Length”)
+--> 4.823
+This should be the average distance between 2 nodes i guess. I think minimum distance between 2 nodes is 1 and the diameter is
+the maximum distance, so average path length should give us an idea about the statistical distribution of the path length i guess.

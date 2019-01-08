@@ -1,0 +1,21 @@
+body {
+  font: 14px Arial;
+
+}
+.states {
+  fill: none;
+  stroke: #00441b;
+  stroke-linejoin: round;
+}
+.tip {
+  line-height: 1.25;
+  padding: 8px;
+  background: #3182bd;
+  color: #f7fcb9;
+  border-radius: 0px;
+}
+.legend {
+  font-size: 12px;
+  color: #000;
+}
+h1 {text-align:center; color: #081d58;}

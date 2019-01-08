@@ -1,0 +1,65 @@
+****************************************
+Q3.1
+
+Linear Regression - 
+	Training Accuracy:86
+	Testing Accuracy:82
+
+SVM -
+	Training Accuracy:98
+	Testing Accuracy:96
+
+MLP - 
+	Training Accuracy:98
+	Testing Accuracy:77
+
+Random Forest - 
+	Training Accuracy:99
+	Testing Accuracy: 95
+
+****************************************
+Q3.2 - Hyperparameter tuning
+
+Random Forest - 
+	n_estimators values tested (at least 3): [5,15,25]
+
+	max_depth values tested (at least 3):  [5,15,25]
+		
+	Best combination of parameter values:
+		n_estimators: 25
+		max_depth: 25
+
+	Testing Accuracy before tuning (default parameters):95
+	Testing Accuracy after tuning:97
+
+
+SVM -
+	Kernels values tested: rbf, linear
+	C values tested (at least 3): [0.1,0.01,0.001]
+		
+	Best combination of parameter values: 
+		Kernel: rbf
+		C: 0.1
+
+	Testing Accuracy before tuning (default parameters):96
+	Testing Accuracy after tuning:96
+
+****************************************
+Q3.3
+
+For your SVM's CV run from Q4.2, state the highest mean testing accuracy 
+across the sets of parameter values and its corresponding mean train score and mean fit time. 
+
+SVM's highest mean testing/cross-validated accuracy (best score):96
+SVM's mean train score:88
+SVM's mean fit time:0.393595437209
+
+****************************************
+Q3.4
+
+Best Classifier:RandomForest
+Why: I think RandomForest performed best because:
+- Among all the classifiers RandomForest shows the Best accuracy score on the testing data of 97 % although before the
+tunning SVM shows higher accuracy of 96 percent, but overall RandomForest is efficient in this experiment with the
+tunning of hyper parameters
+

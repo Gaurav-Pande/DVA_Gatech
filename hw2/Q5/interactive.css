@@ -1,0 +1,58 @@
+h1 {text-align:center; color: blue;}
+
+#Barchart {
+  height: 500px;
+  width:1000px;
+  margin-top: 20px;
+  padding: 15px;
+  overflow: auto;
+  float:left;
+}
+#Linechart{
+  position:absolute;
+  height: 280px;
+  width: 300px;
+  margin-left: 1000px;
+  margin-top:0px;
+  padding: 15px;
+  overflow: auto;
+}
+
+div#Barchart body {
+        font-family: "Arial";
+    }
+
+div#Barchart .axis {
+        font-family: "Arial";
+        font-size: 20px;
+    }
+
+div#Barchart .axis path,
+             .axis line {
+                fill: none;
+                display: none;
+              }
+
+ div#Barchart .label {
+        font-family: "Arial";
+        font-size: 18px;
+        fill: #f7fbff;
+        font-weight: bold;
+    }
+div#Linechart path {
+  stroke: #43a2ca;
+  stroke-width: 2.5;
+  fill: none;
+}
+
+div#Linechart .axis text {
+  font-family: sans-serif;
+  font-size: 15px;
+}
+div#Linechart
+  .axis path,
+  .axis line {
+    fill: none;
+    stroke: black;
+    shape-rendering: crispEdges;
+  }

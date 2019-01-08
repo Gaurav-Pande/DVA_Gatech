@@ -1,0 +1,17 @@
+2. I think that feature combination 1 (Wins+Noms Vs IMDb Rating) is better as it gives a clear indication of the good vs bad movies Witch
+respect to the number of nomination and wins, moreover it shows that blue dots have larger Wins+Noms as compared to the Red dots(bad movie).e
+
+Square Root Scale:
+
+Square root scale can be applied when we want to plot data with large values to be mapped in a small domain.
+Key point of this scale in comparision to log is scale is that we can use the 0 values as well, whereas in log
+scale we can't use 0 values as log(0) is undefined.
+But it cannot be applied to negative values.
+
+Log Scale:
+
+Log scale is suitable if for variables with some outliers.
+It makes an exponential relation as linear(x=e^y ==> y = logx).
+We cannot use this scale for:
+1. value 0
+2. for negative values, as log(negative) is also undefined.

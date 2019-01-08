@@ -1,0 +1,11 @@
+c(i): 488 
+
+c(ii): value.split(",")[0]
+
+c(iii): 
+nominal: country
+ordinal: All
+
+c(iv): value.contains("GA")
+
+c(v): value.replace("http://","").replace("https://","")

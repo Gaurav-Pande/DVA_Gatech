@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.axis path,
+.axis line {
+fill: none;
+stroke: #000;
+shape-rendering: crispEdges;
+}
+
+.axis text {
+font-family: sans-serif;
+font-size: 8px;
+}
+</style>
+<meta name="description" content="Drawing Shapes w/ D3 - cirlce" />
+<meta charset="utf-8">
+<title>gpande3</title>
+<script src="d3/d3.v3.min.js" charset="utf-8"></script>
+</head>
+<body>
+<script type="text/javascript">
+
+//generate some random integers
+
+function getRandomInt(min, max) {
+return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+
+
+//show header
+function showHeader(ds) {
+d3.select("body").append("h1")
+.text("gpande3");
+}
+
+var padding = 20;
+
+
+var i;
+var h=300;
+var w=300;
+var average;
+var random_int_x_y = [];
+for (i = 0; i < 100; i++) {
+ran_num_x = getRandomInt(10,255);
+ran_num_y = getRandomInt(10,255);
+var dict = {"x":ran_num_x,"y":ran_num_y};
+random_int_x_y[i]=dict;
+
+}
+
+
+// Create linear scale for x axis values
+
+var xScale = d3.scale.linear()
+   .domain([0, d3.max(random_int_x_y, function(d) { return d.x; })])
+   .range([1,5]);
+
+var xScale_X = d3.scale.linear()
+  .domain([d3.min(random_int_x_y, function(d) { return d.x; }), d3.max(random_int_x_y, function(d) { return d.x; })])
+  .range([d3.min(random_int_x_y, function(d) { return d.x; })+padding, d3.max(random_int_x_y, function(d) { return d.x; })+padding]);
+
+var yScale_Y = d3.scale.linear()
+  .domain([d3.min(random_int_x_y, function(d) { return d.y; }), d3.max(random_int_x_y, function(d) { return d.y; })])
+  .range([h-d3.min(random_int_x_y, function(d) { return d.y; })-padding, h-d3.max(random_int_x_y, function(d) { return d.y; })-padding]);
+
+// creating svg
+var svg = d3.select("body").append("svg").attr({width:w,height:h});
+
+
+var xAxis = d3.svg.axis()
+.scale(xScale_X)
+.orient("bottom");
+
+var yAxis = d3.svg.axis()
+.scale(yScale_Y)
+.orient("left");
+
+
+function calMean(ds){
+total = 0;
+for(var i=0;i<ds.length;i++){
+total += xScale(ds[i].x);
+}
+var average = total/ds.length;
+return average;
+}
+//add rectangle
+var dots = svg.selectAll("rect")
+.data(random_int_x_y)
+.enter()
+.append("rect")
+.attr("x", function(d) {return d.x+padding;})
+.attr("y", function(d) {return h-d.y-padding;})
+.attr("width", function(d) {return xScale(d.x);})
+.attr("height",function(d) {return xScale(d.y);})
+.attr("stroke-width", 1)
+.attr("stroke-height", 1)
+.attr("fill","transparent")
+.attr("stroke",function(d) {
+//console.log(xScale(d.x))
+//console.log("mean")
+//console.log(d3.mean(xScale(d.x)))
+var mean = calMean(random_int_x_y);
+if (xScale(d.x) > 0 && xScale(d.x) < mean){
+return "green"
+}
+else {
+return "blue"
+}
+}
+);
+
+
+
+var xaxis = svg.append("g")
+.attr("class", "axis")  //Assign "axis" class
+.attr("transform", "translate(0," + (h - padding) + ")")
+.call(xAxis)
+.append("text");
+
+var yaxis = svg.append("g")
+.attr("class", "axis")
+.attr("transform", "translate(" +  25 + ",0)")
+.call(yAxis)
+.append("text")
+.attr("x", 120)
+.attr("y", 20)
+.attr("text-anchor", "middle")
+.style("font-size", "8px")
+.style("text-decoration", "underline")
+.text("gpande3");
+
+
+var text = svg.append("text")
+.data(random_int_x_y)
+.attr("x", 150)
+.attr("y", 270)
+.attr("text-anchor", "middle")
+.style("font-size", "8px")
+.text(function(){return "MinValue:" + d3.min(random_int_x_y, function(d) { return d.y; })});
+
+
+
+</script>
+</body>
+</html>

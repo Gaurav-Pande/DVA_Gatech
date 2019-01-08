@@ -1,0 +1,20 @@
+rect.tiled {
+        stroke: #E6E6E6;
+        stroke-width:2px;
+      }
+text.labels {
+  font-size: 9pt;
+  font-family: sans-serif;
+  fill: #000;
+}
+text.map {
+  font-size: 10pt;
+  font-family: sans-serif;
+  font-weight: bold;
+}
+text.x-axis {
+  fill: #000;
+}
+text.y-axis {
+  fill: #000;
+}

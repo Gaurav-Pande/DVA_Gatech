@@ -1,0 +1,24 @@
+1.Ease to develop (for developers):
+  * Python Matplotlib: Opensource, but it is a bit complex to put graphs and bar charts as you need to write python code for that.
+  * Tableau: Extremely easy to use for building simple graphs and bar charts. Super flexible to built graphs using drag and drop.
+  * d3: Personally being a pythonist I feel d3.js difficult to learn and also very lengthy to develop.
+
+2.Ease to maintain the visualization (for developers):
+  * Python Matplotlib: Visualization is mostly for educational/publication purpose.
+  * Tableau: Very easy to maintain the visualization, as it is directly linked to the data source, but the free version is completly public and open.
+  * d3:
+
+3.Usability of visualization developed (for end users)
+  * Python Matplotlib: Not very user friendly, but yes we can use animations to make it interactive.
+  * Tableau: It is good for static bars and graphs
+  * d3: Can be very user friendly and interactive
+
+4.Scalability of visualization to “large” datasets:
+  * Python Matplotlib: Very much scalable as it is widely used for machine learning applications.
+  * Tableau: Considering the limits in terms of dataset use and cost associated with it, would not consider it scalable
+  * d3: very much scalable as the framework is in javascript and js is pretty much everywhere.
+
+5.System requirements to run the visualization (e.g., browsers, OS, software licensing)
+  * Python Matplotlib: Opensource and you only need to have python(so pretty much works everywhere)
+  * Tableau: Only available for windows and mac. Need to procure license in order to use it.
+  * d3: A good browser(firefox) which supports the different versions of d3 js.
