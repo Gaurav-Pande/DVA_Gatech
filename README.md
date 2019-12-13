@@ -1,4 +1,4 @@
-# Predictive analytics for stock trading usingonline data and sentiment analysis
+# Predictive analytics for stock trading using online data and sentiment analysis
 
 ## Introduction
 
@@ -27,24 +27,68 @@ Petrovsk et al. [12] confirm a substantial correla-tion between stock prices and
 
 Even with the increase in awareness about stockmarket and ML models being used extensively fortrading, most of the valid research is closed-doors.We thus propose a model where it is easy for ageneric user with not much domain knowledgeto try his hands out on predicting stock prices.Also , this code will be scalable to expand to more methods and help researchers with a boilerplatesetup for their work.
 
+<center>
+<img src="assets/1.png"/>
+<figcaption>Figure 1</figcaption>
+</center>
+
+
+<center>
+<img src="assets/2.png"/>
+<figcaption>Figure 2</figcaption>
+</center>
+
 
 #### Data extraction, cleaning and assimilation
 
 We pulled stock price and volume data for multipletickers using APIs offered by world trading data .The data available was day open-end for all history,1 minute resolution for 7 days, 5 min resolutionfor 30 days, and of-course current real time.For twitter , we fetched data based on keywordscontaining stock for tech companies like Amazon,Tesla etc. using twitter APIs. We preprocessed theraw data by removing the twitter handles (@user),stemming(stripping the suffixes (”ing”, ”ly”, ”s” etc)from a word), removing special characters, num-bers, punctuations, pound sign ,removing shortwords like "is", "the". Then we applied basic visual-ization techniques to find out the most commonwords (Figure 1.), visualizing the most commonhashtags to identify which hashtags positively af-fected the prices and which hashtags affected neg-atively (Figure 2,3.), clustering the tweets using Kmeans to identify or group the tweets accordingto the sentiment (Figure 4.).We then concatenate the subjectivity, objectivity,negative, positive, neutral columns of one dataframewith another dataframe which has data about thestock prices for the past 10 day intraday data. Af-ter creating the new concatenated dataframe, wechecked the shape and info of the dataframe andfound some null values. we replaced the null val-ues with the mean of the respective column thenull values were present.For news, articles are used to determine the moodof people towards companies. A positive articleabout a company would reflect in stock prices. Weassume the news of past three days to have an im-pact . Other features considered are news source, asmore famous the source higher the impact . Majorchallenges are Topic modelling for clustering newsabout same topic from different source , especiallywhen same article is published on different mediaat different times of day. We were using newsapi to obtain news and then club them together based onBOW approach on the abstract returned. Now weare using aylien news api which returns completearticle body along with the headlines.Data cleaning was needed before and during as-similation of stock prices data with twitter or newsdata. We had to remove the weekend data fromtwitter and news feeds , as well as tweets postedoutside the market hours.The data was stitchedon base of date/time. For tweets, we calculated an additional column which was Change = (Price 5min before - Price 5 min after)
 
+<center>
+<img src="assets/3.png"/>
+<figcaption>Figure 1</figcaption>
+</center>
+
+
+<center>
+<img src="assets/4.png"/>
+<figcaption>Figure 2</figcaption>
+</center>
+
+
 #### Feature inspection and filtering
 
 As part ofinvestigating the feature we did Correlation andfeatures Mutual information plots against the tar-get variable to know the correlation. We plottedthe Heat map to understand the Pearson coefficientcorrelation factor for different set of columns inthe Dataset. This gave us a better understanding tosee if there are any dependant variables or if any ofthe variables are highly correlated. Some variablesSubjectivity, Objectivity are negatively correlated.There are very few variables which seem to havea very high correlation.We also did the Inspectionof the Binary, categorical and other variables.
+
+<center>
+<img src="assets/5.png"/>
+<figcaption>Figure 1</figcaption>
+</center>
+
 
 
 #### Feature importance ranking via learning mod-els
 
 As part of Training the models - training dataagainst multiple machine learning algorithms andfine tuning a couple of algorithms for accuracy. Wedid the fine tuning using by normalizing the trainand test Datasets.We also plotted the graphs to understand theimportant labels contributing towards the success of the models and fine tune the model by remov-ing the columns which do not contribute to theaccuracy[Figure 8]
 
+<center>
+<img src="assets/6.png"/>
+<figcaption>Figure 2</figcaption>
+</center>
+
 
 #### Experiments and Evaluation of models
 
 Ini-tially, the feature set used was stock change per-centage, sentiment score, confidence score, no offollowers for tweets-stock analysis.But due to inaccurate model training and accu-racy score we tried to calculate the sentimentsusing an entire different approach.we followed aPython implementation of a dictionary-based sen-timent classification procedure which combinestwo different bootstrapping procedures, namelyfor subjectivity and polarity detection. We thanevaluate our models on this datasets.The evaluation of the models is done using ac-curacy score. But accuracy score is not the mosttrustworthy measure of success, so we also plottedthe ROC curve to measure the true positive vs falsenegative.
+
+<center>
+<img src="assets/7.png"/>
+<figcaption>Figure 2</figcaption>
+</center>
+
+<center>
+<img src="assets/8.png"/>
+<figcaption>Figure 2</figcaption>
+</center>
 
 
 #### Visualization app
